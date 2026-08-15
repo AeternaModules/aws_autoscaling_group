@@ -8,7 +8,7 @@ output "autoscaling_groups_arn" {
 }
 output "autoscaling_groups_availability_zone_distribution" {
   description = "Map of availability_zone_distribution values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.availability_zone_distribution if v.availability_zone_distribution != null && length(v.availability_zone_distribution) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.availability_zone_distribution) if v.availability_zone_distribution != null && length(v.availability_zone_distribution) > 0 }
 }
 output "autoscaling_groups_availability_zones" {
   description = "Map of availability_zones values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
@@ -20,7 +20,7 @@ output "autoscaling_groups_capacity_rebalance" {
 }
 output "autoscaling_groups_capacity_reservation_specification" {
   description = "Map of capacity_reservation_specification values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.capacity_reservation_specification if v.capacity_reservation_specification != null && length(v.capacity_reservation_specification) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.capacity_reservation_specification) if v.capacity_reservation_specification != null && length(v.capacity_reservation_specification) > 0 }
 }
 output "autoscaling_groups_context" {
   description = "Map of context values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
@@ -72,15 +72,15 @@ output "autoscaling_groups_initial_lifecycle_hook" {
 }
 output "autoscaling_groups_instance_lifecycle_policy" {
   description = "Map of instance_lifecycle_policy values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.instance_lifecycle_policy if v.instance_lifecycle_policy != null && length(v.instance_lifecycle_policy) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.instance_lifecycle_policy) if v.instance_lifecycle_policy != null && length(v.instance_lifecycle_policy) > 0 }
 }
 output "autoscaling_groups_instance_maintenance_policy" {
   description = "Map of instance_maintenance_policy values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.instance_maintenance_policy if v.instance_maintenance_policy != null && length(v.instance_maintenance_policy) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.instance_maintenance_policy) if v.instance_maintenance_policy != null && length(v.instance_maintenance_policy) > 0 }
 }
 output "autoscaling_groups_instance_refresh" {
   description = "Map of instance_refresh values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.instance_refresh if v.instance_refresh != null && length(v.instance_refresh) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.instance_refresh) if v.instance_refresh != null && length(v.instance_refresh) > 0 }
 }
 output "autoscaling_groups_launch_configuration" {
   description = "Map of launch_configuration values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
@@ -88,7 +88,7 @@ output "autoscaling_groups_launch_configuration" {
 }
 output "autoscaling_groups_launch_template" {
   description = "Map of launch_template values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.launch_template if v.launch_template != null && length(v.launch_template) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.launch_template) if v.launch_template != null && length(v.launch_template) > 0 }
 }
 output "autoscaling_groups_load_balancers" {
   description = "Map of load_balancers values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
@@ -116,7 +116,7 @@ output "autoscaling_groups_min_size" {
 }
 output "autoscaling_groups_mixed_instances_policy" {
   description = "Map of mixed_instances_policy values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.mixed_instances_policy if v.mixed_instances_policy != null && length(v.mixed_instances_policy) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.mixed_instances_policy) if v.mixed_instances_policy != null && length(v.mixed_instances_policy) > 0 }
 }
 output "autoscaling_groups_name" {
   description = "Map of name values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
@@ -180,7 +180,7 @@ output "autoscaling_groups_wait_for_elb_capacity" {
 }
 output "autoscaling_groups_warm_pool" {
   description = "Map of warm_pool values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
-  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => v.warm_pool if v.warm_pool != null && length(v.warm_pool) > 0 }
+  value       = { for k, v in aws_autoscaling_group.autoscaling_groups : k => one(v.warm_pool) if v.warm_pool != null && length(v.warm_pool) > 0 }
 }
 output "autoscaling_groups_warm_pool_size" {
   description = "Map of warm_pool_size values across all autoscaling_groups, keyed the same as var.autoscaling_groups"
